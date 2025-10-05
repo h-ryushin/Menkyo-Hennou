@@ -35,6 +35,8 @@ public class ReactionTester : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
+            redSignal.SetActive(false);
+            blueSignal.SetActive(false);
             this.gameObject.SetActive(false);
             resultPanel.SetActive(true);
             reactionTimeResult = reactionTime;
