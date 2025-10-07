@@ -23,7 +23,7 @@ public class CountdownPanelManeger : MonoBehaviour
     {
         if (testCount == 3)
         {
-            currentpanel.SetActive(true);
+            currentpanel.SetActive(false);
             finalpanel.SetActive(true);
         }
         else
