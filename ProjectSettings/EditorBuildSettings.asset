@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: ca5c73114c959429b823b8e894c0d437
+  - enabled: 1
+    path: Assets/Scenes/Memory2.unity
+    guid: 6a164ec2eaab541dcbae46808677c2d5
+  - enabled: 1
+    path: Assets/Scenes/Memory.unity
+    guid: c70efcc8686e248d3b9c649839748857
   m_configObjects: {}
