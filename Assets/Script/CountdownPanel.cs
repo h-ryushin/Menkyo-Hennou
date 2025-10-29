@@ -15,7 +15,6 @@ public class CountdownPanel : MonoBehaviour
 
     void OnEnable()
     {
-        // このパネルが SetActive(true) になった瞬間にカウント開始
         StartCountdown();
     }
 
