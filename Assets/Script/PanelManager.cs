@@ -72,8 +72,6 @@ public class PanelManager : MonoBehaviour
             CalculateAndDisplayAverage();
         }
     }
-
-    // ★★★ ReactionTesterが成功したときに呼ぶ関数 ★★★
     public void HandleSuccess(float reactionTime)
     {
         // ReactionTesterのパネルを非表示
