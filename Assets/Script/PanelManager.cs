@@ -54,8 +54,7 @@ public class PanelManager : MonoBehaviour
 
         // 3. 次のパネルへ
         currentIndex++;
-
-        // 4. 範囲チェックとパネル表示
+        
         if (currentIndex < panels.Length)
         {
             panels[currentIndex].SetActive(true);
