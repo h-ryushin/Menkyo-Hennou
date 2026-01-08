@@ -4,8 +4,11 @@ using System.Collections;
 
 public class CountdownPanel : MonoBehaviour
 {
-    [Header("次に表示するパネル")]
-    public GameObject nextPanel;
+    // ★★★ 連携に必要なPanelManagerへの参照を追加 ★★★
+    public PanelManager panelManager; 
+    
+    // [Header("次に表示するパネル")] // NextPanelは使用しません
+    // public GameObject nextPanel;  // PanelManagerが制御するため、この行は削除またはコメントアウト推奨
 
     [Header("カウントを表示するText")]
     public Text countdownText;
@@ -34,11 +37,14 @@ public class CountdownPanel : MonoBehaviour
             yield return new WaitForSeconds(1f);
             count--;
         }
+        
         // 表示を消す
         if (countdownText) countdownText.text = "";
 
-        // 次のパネルを有効化して、自分を非表示にする
-        if (nextPanel) nextPanel.SetActive(true);
+        // ★★★ カウント終了後、PanelManagerに次のパネルへの遷移を指示 ★★★
+        if (panelManager != null) panelManager.NextPanel();
+        
+        // 自分を非表示にする
         gameObject.SetActive(false);
     }
 }

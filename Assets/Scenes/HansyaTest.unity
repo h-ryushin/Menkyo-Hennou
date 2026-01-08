@@ -365,6 +365,57 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8022407510886748881, guid: 0ea864dd102814fc1b64fe6428cd1ebf, type: 3}
   m_PrefabInstance: {fileID: 2868804442147899842}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &261072776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 261072778}
+  - component: {fileID: 261072777}
+  m_Layer: 0
+  m_Name: ExperimentManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &261072777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261072776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94508b0473f7942e99ed85473416d354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panels:
+  - {fileID: 235425885}
+  - {fileID: 1741554954}
+  - {fileID: 914344911}
+  finalResultText: {fileID: 884324991}
+  currentResultText: {fileID: 884324991}
+  otetukiPanel: {fileID: 856235348}
+--- !u!4 &261072778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261072776}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 579.1195, y: 390.6705, z: -5.050762}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &361426866
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +773,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642484738}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f753c2fb78a5247db82246f604aecfd0, type: 3}
   m_Name: 
@@ -731,6 +782,11 @@ MonoBehaviour:
   - {fileID: 235425885}
   - {fileID: 1741554954}
   - {fileID: 1430483601}
+  reactionTester: {fileID: 0}
+  countdownPanel: {fileID: 0}
+  finalResultText: {fileID: 0}
+  currentResultText: {fileID: 0}
+  otetukiPanel: {fileID: 0}
 --- !u!114 &642484743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1756,16 +1812,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023909953}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8f226db83ba54f15ba4992112bb9a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelManager: {fileID: 0}
   redSignal: {fileID: 1446185013}
   blueSignal: {fileID: 724821819}
   resultPanel: {fileID: 1398866300}
   otetukiPanel: {fileID: 856235348}
   resultText: {fileID: 884324991}
+  lastReactionTime: 0
 --- !u!1 &1384738795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,7 +2221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a43ea37c478240838bac29e355b7ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextPanel: {fileID: 1023909953}
+  panelManager: {fileID: 0}
   countdownText: {fileID: 143762423}
   startCount: 3
 --- !u!1 &1446185013
@@ -3129,3 +3187,4 @@ SceneRoots:
   - {fileID: 2116335173}
   - {fileID: 500442994}
   - {fileID: 361426869}
+  - {fileID: 261072778}

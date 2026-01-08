@@ -270,6 +270,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8022407510886748881, guid: 0ea864dd102814fc1b64fe6428cd1ebf, type: 3}
   m_PrefabInstance: {fileID: 186619348}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &186619350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7014660014903218644, guid: 0ea864dd102814fc1b64fe6428cd1ebf, type: 3}
+  m_PrefabInstance: {fileID: 186619348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &194793105
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +736,24 @@ MonoBehaviour:
   - {fileID: 235425885}
   - {fileID: 1741554954}
   - {fileID: 1430483601}
+  - {fileID: 1023909953}
+  - {fileID: 1398866300}
+  - {fileID: 186619350}
+  - {fileID: 1430483601}
+  - {fileID: 1023909953}
+  - {fileID: 1398866300}
+  - {fileID: 1430483601}
+  - {fileID: 1023909953}
+  - {fileID: 1398866300}
+  - {fileID: 1430483601}
+  - {fileID: 1023909953}
+  - {fileID: 1398866300}
+  - {fileID: 914344911}
+  reactionTester: {fileID: 1023909957}
+  countdownPanel: {fileID: 1430483602}
+  finalResultText: {fileID: 914344912}
+  currentResultText: {fileID: 884324991}
+  otetukiPanel: {fileID: 856235348}
 --- !u!114 &642484743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,6 +1536,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7014660014903218644, guid: 0ea864dd102814fc1b64fe6428cd1ebf, type: 3}
   m_PrefabInstance: {fileID: 914344909}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &914344912 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4608244844099843832, guid: 0ea864dd102814fc1b64fe6428cd1ebf, type: 3}
+  m_PrefabInstance: {fileID: 914344909}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &920204155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,11 +1795,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f226db83ba54f15ba4992112bb9a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelManager: {fileID: 0}
   redSignal: {fileID: 1446185013}
   blueSignal: {fileID: 724821819}
   resultPanel: {fileID: 1398866300}
   otetukiPanel: {fileID: 856235348}
   resultText: {fileID: 884324991}
+  lastReactionTime: 0
 --- !u!1 &1384738795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,7 +2199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a43ea37c478240838bac29e355b7ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextPanel: {fileID: 1023909953}
+  panelManager: {fileID: 0}
   countdownText: {fileID: 143762423}
   startCount: 3
 --- !u!1 &1446185013
@@ -2857,7 +2893,6 @@ GameObject:
   - component: {fileID: 2140517129}
   - component: {fileID: 2140517128}
   - component: {fileID: 2140517127}
-  - component: {fileID: 2140517126}
   m_Layer: 5
   m_Name: Button (Legacy) (1)
   m_TagString: Untagged
@@ -2885,19 +2920,6 @@ RectTransform:
   m_AnchoredPosition: {x: 295.9999, y: -162.99997}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2140517126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140517124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d235b0d8c8a24e27bcd5473795c1a5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: 
 --- !u!114 &2140517127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2941,7 +2963,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2140517128}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 642484742}
+        m_TargetAssemblyTypeName: PanelManager, Assembly-CSharp
+        m_MethodName: NextPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2140517128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3034,7 +3068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7014660014903218644, guid: 0ea864dd102814fc1b64fe6428cd1ebf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8022407510886748881, guid: 0ea864dd102814fc1b64fe6428cd1ebf, type: 3}
       propertyPath: m_Pivot.x

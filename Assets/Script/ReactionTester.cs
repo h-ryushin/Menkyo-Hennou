@@ -1,59 +1,70 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class ReactionTester : MonoBehaviour
 {
+    public PanelManager panelManager; 
+    
     public GameObject redSignal;
     public GameObject blueSignal;
-    public GameObject resultPanel;
-    public GameObject otetukiPanel;
-    public Text resultText;
+    public GameObject resultPanel; 
+    public GameObject otetukiPanel; // PanelManagerが制御するため使用しない
+    public Text resultText;        // PanelManagerが制御するため使用しない
+    
     float waitTime;
     float timer = 0f;
     float reactionTime = 0f;
     float reactionTimeResult = 0f;
-    // Start is called before the first frame update
+    
+    public float lastReactionTime = 0f; 
+
     void OnEnable()
     {
         redSignal.SetActive(true);
         blueSignal.SetActive(false);
-        resultText.text = "";
         timer = 0f;
+        reactionTime = 0f;
+        lastReactionTime = 0f;
         waitTime = Random.Range(2f, 5f);
     }
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         timer += Time.deltaTime;
+        
         if (timer >= waitTime)
         {
+            // 赤信号終了、青信号開始
             redSignal.SetActive(false);
             blueSignal.SetActive(true);
-            reactionTime += Time.deltaTime;
+            reactionTime += Time.deltaTime; 
+            
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
+                // 成功時の処理
+                reactionTimeResult = reactionTime;
+                lastReactionTime = reactionTimeResult; 
+                
                 redSignal.SetActive(false);
                 blueSignal.SetActive(false);
                 this.gameObject.SetActive(false);
-                resultPanel.SetActive(true);
-                reactionTimeResult = reactionTime;
-                resultText.text = "反応時間: " + reactionTimeResult.ToString("f3") + " 秒";
+                
+                // PanelManagerに成功を通知
+                if (panelManager != null) panelManager.HandleSuccess(reactionTimeResult);
             }
         }
-        else if (timer <= waitTime && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
+        else if (timer < waitTime && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
+            // お手つき時の処理
+            lastReactionTime = -1f; // お手つきを記録
+            
             redSignal.SetActive(false);
             blueSignal.SetActive(false);
             this.gameObject.SetActive(false);
-            otetukiPanel.SetActive(true);
+            
+            // PanelManagerにお手つきを通知
+            if (panelManager != null) panelManager.HandleOtetuki();
         }
-
     }
 }
