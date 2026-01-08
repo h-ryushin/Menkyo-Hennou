@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class CarLoop : MonoBehaviour
 {
-    public float speed = 5f;         // 移動スピード
+    public float speed = 5f;
     public float limitX = 10f;       // 画面外の判定（x座標の限界）
 
-    private Vector3 startPos;        // 最初の位置（ループ用）
+    private Vector3 startPos;
 
     void Start()
     {
